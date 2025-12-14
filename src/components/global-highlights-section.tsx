@@ -1,40 +1,15 @@
 "use client"
 
-import { ChevronRight, ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { ArrowRight } from "lucide-react"
+import SectionHeader from "./ui/section-header"
 
-const highlights = [
-  {
-    location: "Paris",
-    title: "Culinary nights & art walks",
-    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    location: "Tokyo",
-    title: "Hidden rooftop bars & pop-up events",
-    image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    location: "New York",
-    title: "Adventure escapes & wine tours",
-    image: "https://images.unsplash.com/photo-1636865266989-58043bceaa71?w=900&auto=format&fit=crop",
-  },
-  {
-    location: "New York",
-    title: "Adventure escapes & wine tours",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop",
-  },
-]
+
+import { highlights } from "@/data/content"
 
 export default function GlobalHighlightsSection() {
   return (
     <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-25 mb-10">
-      <div className="flex items-center mb-6 cursor-pointer group w-fit">
-        <h2 className="font-montserrat font-bold text-lg text-[#484848]">
-          Global Highlights
-        </h2>
-        <ChevronRight className="w-6 h-6 text-[#000000]" />
-      </div>
+      <SectionHeader title="Global Highlights" className="mb-6 group" />
 
       <div className="overflow-x-auto no-scrollbar">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -43,11 +18,10 @@ export default function GlobalHighlightsSection() {
               key={index}
               className="flex relative min-w-[320px] w-full h-[388px] rounded-2xl overflow-hidden shrink-0 group cursor-pointer"
             >
-              <Image
+              <img
                 src={highlight.image}
                 alt={highlight.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               
               {/* Gradient Overlay */}

@@ -1,12 +1,12 @@
 # Hexallo Project Guide
 
 ## Overview
-Hexallo is a modern travel and event discovery web application built with Next.js 15, React 19, and Tailwind CSS. It features a dynamic homepage with various sections showcasing events, destinations, and deals.
+Hexallo is a modern travel and event discovery web application built with React 19, Vite, and Tailwind CSS. It features a dynamic homepage with various sections showcasing events, destinations, and deals.
 
 ## How to Run
 
 ### Prerequisites
-- Node.js (v18 or higher recommended)
+- Node.js (v20 or higher recommended)
 - Yarn (or npm/pnpm/bun)
 
 ### Installation
@@ -17,53 +17,39 @@ Hexallo is a modern travel and event discovery web application built with Next.j
    ```
 3. Install dependencies:
    ```bash
-   yarn install
-   # or
    npm install
    ```
 
 ### Running the Development Server
 Start the local development server:
 ```bash
-yarn dev
-# or
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
 
 ## Project Structure
 
-The project follows the Next.js App Router structure.
+The project follows a standard Vite + React structure.
 
 ```
 hexallo/
-├── app/                    # App Router pages and layouts
-│   ├── globals.css         # Global styles and Tailwind directives
-│   ├── layout.tsx          # Root layout (HTML structure, fonts)
-│   └── page.tsx            # Homepage entry point
-├── components/             # Reusable UI components
-│   ├── buzzing-destinations-section.tsx
-│   ├── category-card.tsx
-│   ├── deals-section.tsx
-│   ├── destination-card.tsx
-│   ├── event-card.tsx
-│   ├── event-section.tsx
-│   ├── exclusives-section.tsx
-│   ├── explore-ghana-section.tsx
-│   ├── featured-sections.tsx
-│   ├── footer.tsx
-│   ├── for-you-section.tsx
-│   ├── global-highlights-section.tsx
-│   ├── header.tsx
-│   ├── hero.tsx
-│   └── hidden-gems-section.tsx
-├── data/                   # Static data files (JSON)
-│   ├── categories.json     # Data for Explore Ghana categories
-│   └── events.json         # Data for featured events
-├── public/                 # Static assets (images, icons)
+├── src/                    # Source code
+│   ├── components/         # Reusable UI components
+│   │   ├── ui/             # Generic UI elements (Buttons, etc.)
+│   │   └── ...             # Feature components
+│   ├── pages/              # Application pages
+│   │   └── Home.tsx        # Homepage component
+│   ├── lib/                # Utilities
+│   │   └── utils.ts
+│   ├── App.tsx             # Main App component (Routing)
+│   ├── main.tsx            # Entry point
+│   ├── index.css           # Global styles and Tailwind directives
+│   └── public/             # Static assets
+├── index.html              # HTML entry point (Vite)
 ├── package.json            # Project dependencies and scripts
-└── tailwind.config.ts      # Tailwind CSS configuration
+├── vite.config.ts          # Vite configuration
+└── tsconfig.json           # TypeScript configuration
 ```
 
 ## Component Overview
@@ -84,12 +70,10 @@ hexallo/
 - **ExclusivesSection (`exclusives-section.tsx`)**: Exclusive offers or content.
 
 ### Reusable UI Components
-- **EventCard (`event-card.tsx`)**: A card component used to display event details (image, title, date, price). Supports conditional date display.
-- **CategoryCard (`category-card.tsx`)**: A card component for categories in the Explore Ghana section.
-- **EventSection (`event-section.tsx`)**: A wrapper component to display a titled section of `EventCard`s.
+- **EventCard (`event-card.tsx`)**: A card component used to display event details.
+- **CategoryCard (`category-card.tsx`)**: A card component for categories.
 - **DestinationCard (`destination-card.tsx`)**: A card component for destinations.
+- **Button (`ui/button.tsx`)**: Standard button component.
 
 ## Data Management
-Data for events and categories has been extracted into JSON files in the `data/` directory to keep components clean and maintainable.
-- `data/events.json`: Contains arrays for `hotThisWeek`, `tonightsSpotlight`, `unmissable`, and `ghanasTop10s`.
-- `data/categories.json`: Contains the category list for the Explore Ghana section.
+Data for events and categories is located in `src/data/` directory.

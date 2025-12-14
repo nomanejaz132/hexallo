@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight } from "lucide-react"
-import EventCard from "./event-card"
+import EventCard from "./ui/event-card"
 
 export interface Event {
   image: string

@@ -1,7 +1,7 @@
 "use client"
 
 import { Star } from "lucide-react"
-import Image from "next/image"
+
 
 interface EventCardProps {
   variant?: string
@@ -31,11 +31,10 @@ export default function EventCard({
   return (
     <div className={`flex flex-col gap-3 min-w-[280px] group cursor-pointer border-2 ${variant === 'white' ? 'bg-white border-[#00000008]' : 'bg-[#FAF8ED] border-white' } hover:bg-[#F7E4B6] py-2 px-[7px] rounded-2xl shadow-[0px_24px_90px_0px_#C0BCA138]`}>
       <div className="relative aspect-4/3 w-full overflow-hidden rounded-[14px]">
-        <Image
+        <img
           src={image}
           alt={title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
       

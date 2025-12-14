@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+
 
 interface CategoryCardProps {
   title: string
@@ -19,11 +19,10 @@ export default function CategoryCard({
     <div 
       className={`relative h-[228px] rounded-2xl overflow-hidden group cursor-pointer ${className}`}
     >
-      <Image
+      <img
         src={image}
         alt={title}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       
       {/* Gradient Overlay */}
